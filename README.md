@@ -67,4 +67,14 @@ Nenhum domínio, contato real, estatística acadêmica ou oferta de curso foi pr
 
 ## Verificação realizada
 
-As sete páginas foram verificadas no Chrome nas larguras de 1440, 1280, 1024, 768, 480 e 375 px, sem overflow horizontal ou exceções JavaScript. Foram conferidos links e âncoras locais, menu mobile, fechamento por Esc, retorno de foco do lightbox, plantas reais, formulário demonstrativo e movimento reduzido. O envio permanece desabilitado quando JavaScript está desligado.
+As sete páginas foram verificadas no Chrome nas larguras de 1440, 1366, 1280, 1024, 768, 480, 390 e 375 px, sem overflow horizontal ou exceções JavaScript. Foram conferidos links e âncoras locais, menu mobile, fechamento por Esc, retorno de foco do lightbox, plantas reais, formulário demonstrativo e movimento reduzido. O envio permanece desabilitado quando JavaScript está desligado.
+
+## Refinamento de movimento e interação
+
+- O hero mantém o prédio original. A seção Sobre usa uma composição arquitetônica abstrata própria enquanto `campus-about.jpg` não estiver disponível.
+- Entradas por scroll acontecem uma vez, com variantes `.reveal-up`, `.reveal-left`, `.reveal-right` e `.reveal-scale`, estado `.is-visible` e intervalos de até 160 ms entre cards.
+- O parallax usa `requestAnimationFrame`, deslocamento inferior a 8 px e apenas mouse em desktop. O movimento decorativo do MoonShield pausa fora da tela.
+- O menu mobile mantém o foco nos controles do cabeçalho, bloqueia o fundo e restaura o foco ao fechar por Esc. O lightbox preserva esse comportamento com transições curtas.
+- `showToast(message, type)` aceita `info` ou `success`. A notificação fecha após aproximadamente 3 segundos, oferece botão de fechar e pausa enquanto recebe foco ou hover. A confirmação do formulário permanece na página.
+- `prefers-reduced-motion` desativa entradas, parallax, órbitas e rolagem suave, inclusive quando a preferência muda durante a navegação. Sem JavaScript, o conteúdo continua visível.
+- Tokens de raio e sombra estão na seção `02 VARIABLES` do CSS. As fontes existentes continuam com `display=swap`.
